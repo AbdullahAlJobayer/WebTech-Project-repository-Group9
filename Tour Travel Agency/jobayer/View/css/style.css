@@ -1,0 +1,103 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.background{
+	width: 100%;
+	height: 100vh;
+	background: url('../images/111.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	opacity: .90;
+	transition: opacity 1min ease-in-out;
+}
+.main{
+	z-index: 2;
+}
+.navbar{
+	height: 80px;
+	width: 100%;
+
+	background: rgba(0,0,0,0.4);
+}
+.logo{
+	width: 40px;
+	height: auto;
+	padding: 20px ;
+}
+.navbar ul{
+	float: right;
+	margin.right: 20px;
+}
+.navbar ul li{
+	list-style: none;
+	margin: 8px;
+	display: inline-block;
+	line-height: 60px;
+}
+.navbar ul li a{
+	text-decoration: none;
+	color: white;
+	padding: 6px 13px;
+	font-family: sans-serif;
+	transition: .4s;
+
+}
+.navbar ul li a:active,
+.navbar ul li a:hover{
+	background: red;
+	border-radius: 2px;
+}
+.main .center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family:sans-serif ;
+	user-select: none;
+}
+.center h1{
+	color: yellowgreen;
+	font-size: 50px;
+	font-weight: bolder;
+	width: 900px;
+	text-align: center;
+}
+.center h2{
+	color: burlywood;
+	font-size: 40px;
+	font-weight: bolder;
+	width: 800px;
+	text-align: center;
+}
+.center h3{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	width: 700px;
+	text-align: center;
+}
+.center button{
+	margin: 40px 30px;
+}
+.buttons button{
+	height: 30px;
+	width: 200px;
+	font-size: 25px;
+	font-weight: bold;
+	background-color:30, 40, 44;
+	border: 1px solid;
+	outline: none;
+	cursor: pointer;
+	border-radius: 25px;
+	transition: 0.5s;
+	color: blueviolet;
+	background-color: yellow;
+}
+.buttons.btn{
+	margin-left: 25px;
+}

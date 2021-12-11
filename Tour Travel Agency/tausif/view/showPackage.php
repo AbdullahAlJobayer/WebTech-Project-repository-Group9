@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ShowPackage</title>
+	<script src="../view/js/allPackage.js"></script>
+</head>
+<body>
+<?php
+session_start();
+	if(!isset($_SESSION['userName'])){
+		header("location: ../view/login.php");
+	}
+	include '../view/header.html';
+	?>
+	<!-- 2nd layer-->
+<?php
+	include '../view/heading.php';
+	?>
+
+	<?php
+	include'../model/allPackagedb.php';
+	$userList = getAll();
+	if(!empty($_GET['id'])){
+		$res=delete($_GET['id']);
+          if($res){
+          	$userList = getAll();
+          }
+          else{
+          		$userList = getAll();
+          }
+	}
+	?>
+
+	<div style="width: 100%; height:auto; background-color: rgb(153, 153, 255); text-align: center;">
+	<form  action="../controller/showPackagAction.php" method = "GET" name="form" onsubmit="ajax(this);return false;">
+		<fieldset>
+			<legend style="color: black;font-size: 30px;"><b>Package</b></legend><br>
+
+			
+		</fieldset>
+		<th></th>
+
+	</form>
+</div>
+<div id="msg" style="width: 100%;height: auto;background-color: rgb(255, 255, 153);">
+	<?php
+	echo "<table cellspacing='0' border='1' width='100%' height='auto'>";
+
+		echo "<tr>";
+			echo"<th width='20%''>ID</th>";
+			echo"<th width='20%''>Destination</th>";
+			echo"<th width='20%''>Duration</th>";
+			echo"<th width='20%''>Price</th>";
+			echo"<th width='20%''>Action</th>";
+
+		echo"</tr>";
+		  for ($i=0; $i <count($userList) ; $i++) { 
+     	echo"<tr>";
+    echo" <th>" .$userList[$i]["id"] ."</th>";
+	 echo"<th>" .$userList[$i]["destination"] . "</th>";
+	 echo"<th>".$userList[$i]["duration"] ."</th>";
+	echo" <th>".$userList[$i]["price"] ."</th>";
+	  echo"<th><a class='delete' href='" . $_SERVER['PHP_SELF'] . "?id=" . $userList[$i]["id"] . "'>DELETE</a></th>";
+     echo"</tr>";
+
+     }
+		
+	echo"</table>";
+	?>
+</div>
+	
+
+</body>
+</html>
